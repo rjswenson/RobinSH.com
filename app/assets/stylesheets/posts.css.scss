@@ -12,12 +12,13 @@
     img {
       display: block;
       margin: 30px;
+      max-width: 88%;
+      margin: 0 auto 0 auto;
     }
 }
 
 @media (max-width: 600px) {
   .post-body img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 500px;
   }
 }

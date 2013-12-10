@@ -1,10 +1,15 @@
-<h3>Welcome, stranger!</h3>
+<div class="splash">
+  <h3>Welcome, stranger!</h3>
 
-<ul>
-  <p>Learn more about me:</p>
-  <li><%= link_to "My Github profile", "http://www.github.com/rjswenson" %></li>
-  <li><%= link_to "Check out my recipes page", recipes_path %></li>
-  <li><%= link_to "Pop over to Linkedin", "http://www.linkedin.com/in/robinjsh" %></li>
-  <li><%= mail_to "rjswenson@gmail.com", "Email me" %></li>
-</ul>
+  <ul>
+    <p>Learn more about me:</p>
+    <li><%= link_to "My Github profile", "http://www.github.com/rjswenson" %></li>
+    <li><%= link_to "Check out my recipes page", recipes_path %></li>
+    <li><%= link_to "Pop over to Linkedin", "http://www.linkedin.com/in/robinjsh" %></li>
+    <li><%= mail_to "rjswenson@gmail.com", "Email me" %></li>
+  </ul>
+</div>
 
+<div class="bg-img">
+  <%= image_tag("https://s3-us-west-2.amazonaws.com/robinportfolio/cards.jpg") %>
+</div>

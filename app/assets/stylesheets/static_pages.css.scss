@@ -13,3 +13,26 @@ h1, h2, h3, h5, h6, p {
     color: #383838;
   }
 }
+
+.bg-img img{
+  width: 60%;
+  position: fixed;
+  left: 30%;
+  top: 66px;
+}
+
+.splash div {
+  position: inline;
+}
+
+@media (max-width: 800px) {
+  .bg-img img {
+    max-width: 92%;
+    display: block;
+    position: static;
+  }
+  .splash div {
+    position: static;
+    display: block;
+  }
+}
