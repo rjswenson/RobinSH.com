@@ -1,16 +1,20 @@
-<h1>All the Blog Posts</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Creation date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
+<% if current_user && current_user.admin? %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= link_to post.title, post_path(post) %></td>
-        <td><%= l post.created_at, format: :short %></td>
+        <th>Title</th>
+        <th>Creation date</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.title, post_path(post) %></td>
+          <td><%= l post.created_at, format: :short %></td>
+        </tr>
+      <% end %>
+  </table>
+<% else %>
+  <%= render @posts %>
+  <%= will_paginate @posts %>
+<% end %>
