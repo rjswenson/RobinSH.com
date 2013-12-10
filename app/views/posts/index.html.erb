@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Content</th>
       <th>Creation date</th>
     </tr>
   </thead>
@@ -12,7 +11,6 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= link_to post.title, post_path(post) %></td>
-        <td><%= post.body %></td>
         <td><%= l post.created_at, format: :short %></td>
       </tr>
     <% end %>
