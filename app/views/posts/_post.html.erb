@@ -1,8 +1,8 @@
 <div class="post-body">
-  <h1><%= @post.title %></h1>
-  <h4><%= l @post.created_at, format: :short %></h4>
+  <h1><%= post.title %></h1>
+  <h4><%= l post.created_at, format: :short %></h4>
 </div>
 
 <div class="post-body">
-  <%= (@post.body).html_safe %>
+  <%= (post.body).html_safe %>
 </div>
