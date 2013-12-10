@@ -1,0 +1,118 @@
+<h3>Github - Wercker - Heroku</h3>
+
+<h4>By: Robin Swenson-Healey</h4><br/><br/>
+
+Ruby on Rails developers have a lot to think about when they start an application.  Going from idea to production
+may seem like a daunting task but in fact it has never been easier.  Using a couple of (mostly) free resources
+a web dev can automate most of their flow without sacrificing autonomy or code integrity. <br/>
+
+To move from project to production requires three main processes:
+<ul>
+  <li>Distributed Version Control</li>
+  <li>Constant, Automated Integration Testing</li>
+  <li>A functioning Production Server</li>
+</ul>
+
+We can connect these three together into the ultimate app <b>Triple Threat</b>.
+
+
+As a Rails Developer, we take for granted <a href="http://guides.rubyonrails.org/getting_started.html#creating-the-blog-application">step one</a> in our project creation.
+
+<h5>But what about step 2?</h5>
+
+Step two is <a href="http://git-scm.com/book/en/Getting-Started-About-Version-Control">version control</a>.  With a Distributed Version Control System(DVCS) such as Git
+we can keep our code changes orderly and remote.  This way, any negative changes or local
+corruptions can be rolled back.  Plus collaboration becomes much easier.
+
+<h4>Github for DVCS</h4>
+Github offers us this DVCS free of charge, as long as our code is public.  <a href="https://help.github.com/articles/set-up-git">Get over there and
+create an account</a>:
+
+<a href="https://s3-us-west-2.amazonaws.com/robinportfolio/git-signup.png"/></a>
+
+And lets get our local directory covered, as a repository:
+
+<a href="https://github.com/new"><img src="https://s3-us-west-2.amazonaws.com/robinportfolio/git-new-repo.png"/></a>
+
+From here add changes or new files, <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html"> write a good commit message</a> and push them to Github.<br/><br/>
+
+Great, but now what?<br/>
+
+<h4>Automated Testing with Wercker</h4>
+
+<a href="https://app.wercker.com/sessions/new">Wercker</a> is an up and coming remote automated testing suite, similar to <a href="https://travis-ci.org">Travis-CI</a> or <a href="http://www.drone.io">Drone.io</a>.
+While currently in beta all testing is free of charge, even for private repos.  They also have
+a very comprehensive <a href="http://devcenter.wercker.com/articles/introduction/security.html">explanation</a> of how your code will be kept safe from prying eyes.
+
+Go on over and create an <a href="https://app.wercker.com/sessions/new">account!</a></br>
+
+Now that wasn't so hard.  The best thing? <a href="http://devcenter.wercker.com/articles/introduction/deploys.html">Github integration!</a>
+Wercker smoothly slides you from<a href="https://app.wercker.com/#applications/create"> step to step</a>: </br>
+
+<ol>
+<li>Go to 'MyApps' and click 'Add an application'
+<img></li>
+
+<li>An option is presented for both Github and Bitbucket integration.  Click on that Github 'Connect'.</li>
+
+<li>Select your Github repository from the populated list.</li>
+
+<li>And Add 'werckerbot' as a collaborator on your project in Github:<img src="https://s3-us-west-2.amazonaws.com/robinportfolio/weckerbot.png"/></li>
+
+<li>Wercker creates a 'wercker.yml' file just for your app, which you need to drop into your
+app's root directory.  For my Ruby on rails app, I needed to change the first line: <br/>
+
+<img src="https://s3-us-west-2.amazonaws.com/robinportfolio/wercker-box.png"/></br>
+
+But your app might be different depending on what box you'd like it to run on.  The
+<a href="http://devcenter.wercker.com/articles/werckeryml/#box">box options</a> are laid out, so pick what works best for your environment.
+</li></ol><br/>
+
+Ta da!  Every time you make a commit, Wercker will run your tests and let you know if anything
+is failing. You can check this on your Wercker Builds tab within your project. <br/>
+
+
+<h4> Heroku, the free Production Server </h4>
+
+When you are ready to present your app to the world, there is no better first step then
+<a href="https://id.heroku.com/signup"> Heroku </a>.
+
+You will need to install their <a href="https://toolbelt.heroku.com"> toolbelt </a> so that you can use terminal commands
+for Heroku. After creating an account and receiving confirmation, you can login to heroku within bash:
+
+<img src="https://s3-us-west-2.amazonaws.com/robinportfolio/heroku-login.png"/>
+
+Of note is that Heroku uses PostgreSQL as its database, but Rails 3 defaults to SQLite.
+You can either <a href="http://bigbangtechnology.com/post/installing_postgresql_on_mac_os_x/"> set up your app with PostgreSQL </a>
+or simply set pg for production in your Gemfile (with rails_12factor):
+<img src="https://s3-us-west-2.amazonaws.com/robinportfolio/pg-gemfile.png"/>
+
+You will also need to modify your database.yml and config/application.rb slightly:
+<img src="https://s3-us-west-2.amazonaws.com/robinportfolio/production-gems.png"/><br/>
+
+<img src="https://s3-us-west-2.amazonaws.com/robinportfolio/config-heroku.png"/>
+
+NOTICE: setting up is <a href="https://devcenter.heroku.com/articles/getting-started-with-rails4"> slightly different </a> for rails 4.
+
+From here, make sure your app is already in a git repo and in your terminal:
+```
+cd ~/myapp
+heroku create
+git push heroku master
+```
+But realistically, who wants to push heroku manually when Wercker will do it for us?
+Wercker already tests our commits, but it can also automatically push passing commits to Heroku.
+Simply visit Wercker's page for your project and click on your most recent commit, and click that big
+blue button:
+
+<img src="https://s3-us-west-2.amazonaws.com/robinportfolio/blue-button.png"/>
+
+You'll need to input your Heroku API key, found in your <a href="https://dashboard.heroku.com/account"> Heroku account</a> page.  Voala!
+Don't forget to set which branch you'd like to automatically push. </br>
+
+I recommend creating a branch just for production but you can also do it for master or any other branch.</br>
+
+
+It might seem daunting, connecting these three services together.  In fact this step by step process
+doesn't have many pitfalls.  This integration will save you time and energy, while maximizing uptime
+of your production server.

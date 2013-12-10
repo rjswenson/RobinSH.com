@@ -1,0 +1,69 @@
+<h3>Your website for all</h3>
+<h4>By: Robin Swenson-Healey</h4><br/>
+
+<h5>Same website, different look</h5>
+<img src="http://www.esri.com/esri-news/arcuser/winter-2013/~/media/Images/Content/news/arcuser/0113/graphics/media_queries_1-lg.jpg" alt="screen varieties" />
+
+<p>So you've made a beautiful website. It looks good locally on your computer but how does it look on anyone elses'?</p>
+
+<p>Today more than ever people are viewing web pages on a plethora of devices.  From new 4K monitors(3840 pixels × 2160 lines) to Android Phones(767px or less) it is important that you don't lose viewers because of your broken design.</p>
+
+<h4>Getting Started</h4>
+
+<p>You'll need some basic tools to test your application design.</p>
+
+<ul>
+  <li>Chrome with Dev-Tools</li>
+  <li><a href="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation">Mobile emulation set up</a></li>
+  <li>Optionally: A <a href="https://chrome.google.com/webstore/detail/mobilerwd-tester/elmekokodcohlommfikpmojheggnbelo?hl=en-US">Mobile/RWD Tester(extension)</a></li>
+</ul>
+
+<p>With these we can test our current design and see where the problems lie.</p>
+
+<h4>Do's and Don'ts</h4>
+
+<p>When designing a page, sometimes we get caught up in making it look just right.  This is an excellent habit, as long as you aren't modifying static positioning.  A sure fire way to ruin your website for mobile devices include:</p>
+
+<ul>
+  <li>Static widths and heights for menus, and columns. Limit CSS which calls dimensions by pixel length(e.g. Width: 92% is a lot better than Width: 600px)</li>
+  <li>Text should be sized depending on the device, not pixel height(e.g. font-size: .8em not font-size: 12px)</li>
+  <li> Overall, limit fixed, static design(e.g. don't use position: fixed or absolute unless it really makes sense)</li>
+</ul>
+
+<h4>Media Queries to the Rescue</h4>
+
+<p>Writing your design using <strong>em</strong> and <strong>percentages</strong> will definitely pave the way for a good design.  What really make a website pop though are 'Media Queries'</p>
+
+<h5>What is a Media Query?</h5>
+<p>CSS3 has introduced a new way of design with media queries. These CSS snippets allow a designer to modify a view based upon either the device itself or a particular size of screen.</p>
+
+<p><strong>NOTE:</strong> These are not currently supported by IE 8</p>
+
+<h5>Using Media Queries</h5>
+
+<p>CSS syntax for these are fairly straightforward.</p>
+<pre><code>
+  @media only screen and (max-device-width: 480px) {
+    #navbar {
+      width: 300px;
+    }
+    #content {
+      float: none;
+      width: 100%
+    }
+  }
+</pre></code>
+
+<p>This code changes our navbar and content to view differently, but <strong>only</strong> when the device is both a screen and under 480px in width.</p>
+
+<p>There are many different applications for these queries.They can even be used with orientation.</p>
+
+<pre><code>
+  @media (min-width: 700px) and (orientation: landscape) {
+  ....
+  }
+</pre></code>
+
+<p>To find out all the options for media queries check out <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">Mozilla's explanation</a> and also these <a href="http://nmsdvid.com/snippets/">Media query snippets</a> created for particular devices.</p>
+
+<p>The onus is on you, the developer, to make your site work with different devices.  Don't lose users simply because they can't use your static site.</p>
