@@ -1,0 +1,35 @@
+html, body, h1, h2, h3, p {border margin:0; padding:0; font-weight: bolder; font-size: 1.2em;}
+
+body {background-image: url("img/somebackground2.jpg");}
+
+
+body, h1, h2, p {text-align: left; font-family: Papyrus, fantasy, serif;}
+
+body {margin-left: 10%; margin-right: 10%;}
+
+h1 {margin-left:-6%; font-weight: 500; font-size: 2em;}
+h2 {margin-left:-4%;}
+
+li { font-size: .8em;}
+
+p{ font-size:.8em;}
+
+h3.origin {font-style: italic; border-style: solid; border-width: 1px;}
+
+table.navbut {text-align: center; margin:auto;}
+
+div.navbar {margin:auto; height: 60px; width: 175px; border: solid black 2px; border-radius: 10px;}
+
+h2.undertitle {margin-top:0;}
+
+tr.foods {margin: auto; border-radius:10px;}
+h1 {margin-bottom: 0;}
+table {margin:auto;}
+img.bodypic {border-style: solid; border-width: 2.5px; width: 512px; height: 384px; display:block; margin-left: auto; margin-right:auto;}
+
+.nav { height: 50px; width: 50px;}
+
+.index_pic {border-style:solid; height: 450px; width: 600px;}
+
+.footer {font-size: .7em; text-align: center; margin: auto; text-align: center; height: 30px; width: 500px; border-radius: 10px; border: solid black 1.5px;}
+p.footer {text-align:center;}

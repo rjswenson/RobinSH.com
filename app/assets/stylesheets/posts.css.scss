@@ -1,0 +1,23 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-body {
+  margin: 0 auto 0 auto;
+  width: 92%;
+  background-color: #454545;
+  border: 1px solid #454545;
+  border-radius: 5px;
+  color: #E3E3E3;
+    img {
+      display: block;
+      margin: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+  .post-body img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
