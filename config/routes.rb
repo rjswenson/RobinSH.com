@@ -1,4 +1,5 @@
 PersonalSite::Application.routes.draw do
+  devise_for :users
   resources :projects
 
   get "static_pages/splash"
