@@ -4,6 +4,7 @@
       <tr>
         <th>Title</th>
         <th>Creation date</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -11,6 +12,7 @@
         <tr>
           <td><%= link_to post.title, post_path(post) %></td>
           <td><%= l post.created_at, format: :short %></td>
+          <td><%= link_to "delete", post_path(post), method: :delete %></td>
         </tr>
       <% end %>
   </table>
