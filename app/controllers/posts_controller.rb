@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, :except => [:index, :show]
   def index
-    @posts = Post.paginate(:page => 1, :per_page => 2)
+    @posts = Post.order("created_at DESC").paginate(page: params[:page], per_page: 1)
+    @all_posts = Post.all
   end
 
   def show
