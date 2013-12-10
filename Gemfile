@@ -20,6 +20,8 @@ end
 
 # Security
 gem 'figaro'
+gem 'devise'
+gem 'pundit'
 
 # Performance
 gem 'will_paginate'
