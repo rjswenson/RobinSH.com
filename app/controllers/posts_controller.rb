@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!, :except => [:index, :show]
   def index
     @posts = Post.paginate(:page => 1, :per_page => 2)
   end
@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    authorize @post
     if @post.save
       redirect_to posts_path, notice: "Great Success"
     else
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    authorize @post
     if @post.update(post_params)
       redirect_to posts_path, notice: "Post updated"
     else
@@ -30,9 +32,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    authorize @post
   end
 
   def destroy
+    authorize @post
     @post.destroy
     redirect_to posts_path, notice: "Post Deleted"
   end
