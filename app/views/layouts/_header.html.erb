@@ -9,12 +9,13 @@
           <li><%= link_to "About me", static_pages_contact_path %></li>
         </ul>
       </div><!-- /.nav-collapse -->
-    </div><!-- /.container -->
-  </div><!-- /.navbar-inner -->
-  <div class="signing">
+        <div class="signing">
     <% if user_signed_in? %>
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signout"%></li>
     <% else %>
       <li><%= link_to "Sign in", new_user_session_path %></li>
     <% end %>
+  </div>
+    </div><!-- /.container -->
+  </div><!-- /.navbar-inner -->
 </div><!-- /.navbar -->
