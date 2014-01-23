@@ -1,0 +1,8 @@
+<div class="project-title">
+  <h1><%= @project.title %></h1>
+  <h4><%= l @project.created_at, format: :short %></h4>
+</div>
+
+<div class="project-description">
+  <%= (@project.description).html_safe %>
+</div>
