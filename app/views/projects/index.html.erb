@@ -1,3 +1,22 @@
-<%= render @projects %>
-
-<%= pagination_links(@projects) %>
+<% if current_user && current_user.admin? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date Created</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.title, project_path(project) %></td>
+          <td><%= l project.created_at, format: :short %></td>
+          <td><%= link_to "delete", project_path(project), method: :delete %></td>
+        </tr>
+      <% end %>
+  </table>
+<% else %>
+  <%= render @projects %>
+  <%= pagination_links(@projects) %>
+<% end %>
