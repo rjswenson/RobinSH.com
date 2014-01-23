@@ -16,15 +16,28 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to recipes_path , notice: 'Recipe was successfully created.'
+
+    else
+      render action: 'new'
+    end
   end
 
   def edit
   end
 
   def update
+    if @recipe.update(recipe_params)
+      redirect_to recipes_path, notice: "Recipe updated"
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
+    @recipe.destroy
+    redirect_to recipes_path, notice: "Recipe Deleted"
   end
 
   private
