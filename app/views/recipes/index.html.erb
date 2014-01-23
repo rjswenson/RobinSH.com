@@ -1,0 +1,22 @@
+<% if current_user && current_user.admin? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Dish</th>
+        <th>Date Created</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_recipes.each do |recipe| %>
+        <tr>
+          <td><%= link_to recipe.title, recipe_path(recipe) %></td>
+          <td><%= l recipe.created_at, format: :short %></td>
+          <td><%= link_to "delete", recipe_path(recipe), method: :delete %></td>
+        </tr>
+      <% end %>
+  </table>
+<% else %>
+  <%= render @recipes %>
+  <%= pagination_links(@recipes) %>
+<% end %>
