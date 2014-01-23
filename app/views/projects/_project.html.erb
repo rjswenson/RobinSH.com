@@ -1,0 +1,9 @@
+<div class="project-body">
+  <h1><%= project.title %></h1>
+  <h2><%= project.skills %></h2>
+  <h4><%= l project.created_at, format: :short %></h4>
+</div>
+<br/>
+<div class="project-body">
+  <%= (project.description).html_safe %>
+</div>
