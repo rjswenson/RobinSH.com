@@ -8,15 +8,33 @@
       </tr>
     </thead>
     <tbody>
-      <% @all_recipes.each do |recipe| %>
+      <% @recipes.each do |recipe| %>
         <tr>
           <td><%= link_to recipe.title, recipe_path(recipe) %></td>
           <td><%= l recipe.created_at, format: :short %></td>
           <td><%= link_to "delete", recipe_path(recipe), method: :delete %></td>
         </tr>
       <% end %>
+    </tbody>
   </table>
-<% else %>
-  <%= render @recipes %>
-  <%= pagination_links(@recipes) %>
 <% end %>
+
+
+<h1> The World in food</h1>
+<h2 class="undertitle"> 10 Recipes that will blow your socks off </h2>
+
+<img class="index_pic" src="img/somefood.jpg">
+
+<p> Some say that taste is personal.  Some people are wrong.  After scouring the world we have compiled these recipes for your eating pleasure. </p>
+
+<br>
+
+<p> Enjoy! </p>
+
+<p> From Asia and Beyond (but mostly Asia) </p>
+
+<ul id="thumb-grid">
+  <% @recipes.each do |recipe| %>
+    <li><%= link_to recipe.dish, recipe_path(recipe) %></li>
+  <% end %>
+</ul>
