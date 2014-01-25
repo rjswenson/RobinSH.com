@@ -9,9 +9,8 @@ h1, h2, h3, h5, h6, p {
 }
 
 .signing {
-  a {
-    color: #383838;
-  }
+  li { list-style-type: none; }
+  a { color: #383838; }
 }
 
 .bg-img img{
@@ -39,4 +38,11 @@ h1, h2, h3, h5, h6, p {
 
 li, p{
   color: #B3B3B3;
+}
+
+#contact-page {
+  li {
+    margin-left: 30px;
+  }
+
 }
